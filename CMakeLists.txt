@@ -45,10 +45,32 @@ list(APPEND THIRD_PARTY_LIBS pthread)
 ################## 3rd Party Packages.
 ##############################################################################
 
+#### Eigen3
+FIND_PACKAGE( Eigen3 REQUIRED )
+INCLUDE_DIRECTORIES ( ${EIGEN3_INCLUDE_DIR} )
+add_definitions(-DHAVE_EIGEN)
+list(APPEND THIRD_PARTY_LIBS ${EIGEN3_LIBS} )
 
 add_executable(
 	StringToBinaryTree BinaryTree/StringToBinaryTree.cpp
 )
+
+add_executable(
+    CountIslands    CountIslands/count_islands.cpp  CountIslands/count_island_example.cpp
+)
+
+add_executable(
+    HourGlassSum    arrays/hour_glass_sum.cpp
+)
+
+add_executable(
+    MinSwaps2    arrays/min_swaps_2.cpp
+)
+
+add_executable(
+    BalancedBrackets    StacksAndQueues/balancedbrackets.cpp
+)
+
 
 # Target 3rd party libraries
 #target_link_libraries(CodingTestExamples ${THIRD_PARTY_LIBS})

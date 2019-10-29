@@ -3,3 +3,11 @@ build/
 
 #ignore bin directory
 bin/
+
+# Qt creator project residual files
+*.config
+*.creator*
+*.files
+*.includes
+*.user
+
