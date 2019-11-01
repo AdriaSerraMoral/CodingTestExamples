@@ -71,6 +71,10 @@ add_executable(
     BalancedBrackets    StacksAndQueues/balancedbrackets.cpp
 )
 
+add_executable(
+    LaneDriving     SingleLaneDriving/single_lane_driving.cpp
+)
+
 
 # Target 3rd party libraries
 #target_link_libraries(CodingTestExamples ${THIRD_PARTY_LIBS})
