@@ -56,6 +56,10 @@ add_executable(
 )
 
 add_executable(
+        VerifyPreorder BinaryTree/verify_preorder.cpp
+)
+
+add_executable(
     CountIslands    CountIslands/count_islands.cpp  CountIslands/count_island_example.cpp
 )
 
@@ -68,11 +72,43 @@ add_executable(
 )
 
 add_executable(
+    RangeSumQuery    arrays/range_sum_query.cpp
+)
+
+add_executable(
+    MergeIntervals    arrays/merge_intervals.cpp
+)
+
+add_executable(
+    MaxSubarraySum    arrays/max_subarray.cpp
+)
+
+add_executable(
+    CountInversions    arrays/count_inversions.cpp
+)
+
+add_executable(
     BalancedBrackets    StacksAndQueues/balancedbrackets.cpp
 )
 
 add_executable(
     LaneDriving     SingleLaneDriving/single_lane_driving.cpp
+)
+
+add_executable(
+    CoinChange      CoinChange/coin_change.cpp
+)
+
+add_executable(
+    MinWindowSubstring  MinWindowSubstring/min_window_substring.cpp
+)
+
+add_executable(
+    BestTimeBuyStock  BestTimeBuyStock/best_time_buy_stock.cpp
+)
+
+add_executable(
+    TaskScheduler   TaskScheduler/task_scheduler.cpp
 )
 
 
