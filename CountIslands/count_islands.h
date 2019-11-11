@@ -16,8 +16,9 @@
 #include <stdlib.h>
 #include <vector>
 #include <map>
-#include<iostream>
-#include<Eigen/Dense>
+#include <iostream>
+#include <Eigen/Dense>
+#include <queue>
 
 using namespace std;
 using namespace Eigen;
@@ -45,6 +46,9 @@ private:
     double X_MIN{0.};
     double Y_MAX{10.};
     double Y_MIN{0.};
+    int    IDX_MAX;
+    int    IDY_MAX;
+
     // yet, we could design a member function which takes input structure
     // and computes maximum(s) and resolution, or compute it in setGeometry function.
 
@@ -55,6 +59,12 @@ private:
     ///<    0: X_MIN or Y_MIN
     ///<    m: X_MAX or Y_MAX
     MatrixXd matrix;
+
+    // Double ended queue to run dfs or bfs
+    std::deque< std::pair<int, int> > open_nodes;
+
+    // vector to check whether a node was visited previously
+    vector<vector<bool>> visited;
 
     // ------------------ HELPER FUNCTIONS ----------------------------------------
 
@@ -77,7 +87,10 @@ private:
     MatrixXd toggleMatrix(MatrixXd& submatrix);
 
     ///< dfs: This function does depth first search to find number of islands
-    void dfs(const int i, const int j, const MatrixXd& matrix, vector<vector<bool>>& visited);
+    void dfs(const int i, const int j, const MatrixXd& matrix );
+
+    ///< dfs is recursive, also solve dfs search using deque
+    void addChildren( const int px, const int py, const std::vector< std::vector<int> >& grid);
 
 public:
 
@@ -89,6 +102,12 @@ public:
     ///< NOTE: I am taking struct input as the input, could do void* to be more
     ///<       general, but I am optimizing for speed to code this within 2hrs
     int countIslands(input* data);
+
+    ///< countIslands( const std::vector< std::vector< int> >& grid ):
+    ///<    Input: a 2d grid with 0 and 1 representing islands
+    ///<
+    ///<    Output: number of islands (int)
+    int countIslands( const std::vector< std::vector<int> >& grid);
 
     const MatrixXd& getMatrix() const { return matrix; }
 
